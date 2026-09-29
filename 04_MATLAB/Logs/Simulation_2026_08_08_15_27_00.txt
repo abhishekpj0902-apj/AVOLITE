@@ -1,0 +1,67 @@
+=========================================
+         SARRS STUDIO LOG FILE
+=========================================
+
+Simulation Time : 08-Aug-2026 15:27:00
+
+MISSION
+-----------------------------------------
+Mode        : Search
+Type        : Ground Based Radar
+Priority    : Normal
+Max Range   : 150000 m
+
+ENVIRONMENT
+-----------------------------------------
+Temperature : 30.0 C
+Humidity    : 60.0 %
+Pressure    : 1013 hPa
+Wind        : 10.0
+Terrain     : Open Field
+Jamming     : OFF
+
+RADAR
+-----------------------------------------
+Frequency   : 10.00 GHz
+Power       : 10000 W
+Gain        : 35.0 dB
+Bandwidth   : 20.00 MHz
+PRF         : 1000 Hz
+
+TRACKS
+-----------------------------------------
+Number of Tracks : 5
+
+Track 1
+Range      : 50323.50 m
+Amplitude  : 0.9998
+Status     : Tentative
+Age        : 1
+
+Track 2
+Range      : 65518.50 m
+Amplitude  : 1.0000
+Status     : Tentative
+Age        : 1
+
+Track 3
+Range      : 80355.00 m
+Amplitude  : 0.7390
+Status     : Tentative
+Age        : 1
+
+Track 4
+Range      : 95503.50 m
+Amplitude  : 0.1654
+Status     : Tentative
+Age        : 1
+
+Track 5
+Range      : 111015.00 m
+Amplitude  : 0.1498
+Status     : Tentative
+Age        : 1
+
+=========================================
+End of Simulation Log
+=========================================

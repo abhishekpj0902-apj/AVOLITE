@@ -1,0 +1,49 @@
+function Tracks = KalmanTracker(TrackInput)
+
+%=========================================================
+% SARRS STUDIO
+% Kalman Tracker
+%=========================================================
+
+Tracks = TrackInput;
+
+%% No Tracks
+
+if isempty(TrackInput)
+
+    disp("No Tracks Available")
+
+    return
+
+end
+
+%% Kalman Parameters
+
+Q = 0.05;
+R = 2;
+
+for k = 1:length(TrackInput)
+
+    z = TrackInput(k).DetectionIndex;
+
+    x = z;
+    P = 1;
+
+    xPred = x;
+    PPred = P + Q;
+
+    K = PPred/(PPred + R);
+
+    xNew = xPred + K*(z - xPred);
+
+    PNew = (1-K)*PPred;
+
+    Tracks(k).MeasuredPosition = z;
+    Tracks(k).PredictedPosition = xPred;
+    Tracks(k).FilteredPosition = xNew;
+    Tracks(k).Covariance = PNew;
+    Tracks(k).KalmanGain = K;
+
+end
+
+end

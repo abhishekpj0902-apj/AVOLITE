@@ -1,0 +1,65 @@
+function Targets = Target()
+
+%=========================================================
+% SARRS STUDIO
+% Target Model
+%=========================================================
+
+%% Default Configuration
+
+Count = 5;
+
+BaseRange = 50;      % km
+Velocity = 250;      % m/s
+Altitude = 5000;     % m
+RCS = 10;
+Heading = 'Toward Radar';
+Type = 'Aircraft';
+
+dt = 1;
+T = 60;
+
+Time = 0:dt:T;
+N = numel(Time);
+
+Targets = struct([]);
+
+for i = 1:Count
+
+    Targets(i).ID = i;
+    Targets(i).Type = Type;
+    Targets(i).Range = BaseRange + (i-1)*5;
+    Targets(i).Velocity = Velocity;
+    Targets(i).Heading = Heading;
+    Targets(i).Altitude = Altitude;
+    Targets(i).RCS = RCS;
+
+    Targets(i).Time = Time;
+
+    Targets(i).X = zeros(1,N);
+    Targets(i).Y = zeros(1,N);
+    Targets(i).Z = zeros(1,N);
+
+    % Initial Position
+    Targets(i).X(1) = Targets(i).Range * 1000;
+    Targets(i).Y(1) = (i-1) * 1000;
+    Targets(i).Z(1) = Altitude;
+
+    % Motion
+    for k = 2:N
+
+        Targets(i).X(k) = Targets(i).X(k-1) - Velocity;
+        Targets(i).Y(k) = Targets(i).Y(k-1);
+        Targets(i).Z(k) = Altitude;
+
+    end
+
+    % Distance from radar
+    Targets(i).Distance = sqrt( ...
+        Targets(i).X.^2 + ...
+        Targets(i).Y.^2 + ...
+        Targets(i).Z.^2 );
+
+end
+
+end
