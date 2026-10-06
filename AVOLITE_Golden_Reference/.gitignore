@@ -1,0 +1,19 @@
+# MATLAB
+*.asv
+*.autosave
+*.m~
+*.mex*
+slprj/
+*.slxc
+*.sldd
+*.mat
+
+# Results
+results/simulation_runs/*
+results/logs/*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
